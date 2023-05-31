@@ -5,8 +5,9 @@ import HomeNav from "~/components/HomeNav";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const {data} = api.groups.getAll.useQuery();
 
+  console.log(data);
   return (
     <>
       <Head>

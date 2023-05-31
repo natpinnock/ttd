@@ -18,6 +18,7 @@ model Group {
     notes     String
     lessons  Lesson[]
     @@unique([id, name])
+    @@index([userId])
 }
 
 model Lesson {
@@ -30,4 +31,5 @@ model Lesson {
     time     String
     lessonPlan     String
     group   Group @relation(fields: [groupId, groupName], references: [id, name])
+    @@index([groupId, userId])
 }
